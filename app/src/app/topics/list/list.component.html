@@ -1,0 +1,17 @@
+<h3>My topics</h3>
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start "
+        *ngFor="let topic of topics | async">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{topic.name}}</h5>
+            <div class="btn-group" role="group" aria-label="Exemplo básico">
+                <button type="button" class="btn btn-warning" (click)="edit(topic, topic.key)"><fa-icon [icon]="icons.faEdit"></fa-icon></button>
+
+                <button type="button" class="btn btn-danger" (click)="delete(topic.key)"><fa-icon [icon]="icons.faTrash"></fa-icon></button>
+            </div>
+        </div>
+        <p class="mb-1">{{topic.done}}</p>
+        <small>
+            <ngb-progressbar type="success" [value]="topic.position"></ngb-progressbar>
+        </small>
+    </a>
